@@ -7,6 +7,7 @@ import {
 } from './components/UI';
 import MoviesList from './components/MoviesList/MoviesList';
 import ControlBar from './components/ControlBar/ControlBar';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -18,7 +19,6 @@ class App extends Component {
 
   fetchMovies = (searchQuery) => {
     const { searchBy } = this.state;
-    if (searchQuery === 'blood') throw new Error('Ублюдок, мать твою, а ну иди сюда...');
     return movies.filter(movie => {
       if (typeof movie[searchBy] === 'string') {
         return movie[searchBy]
@@ -62,6 +62,7 @@ class App extends Component {
           />
           <ControlBar
             toggleSorting={this.onSortToggleHandler}
+            filmsCount={this.state.movies.length}
           />
           <MoviesList
             sortBy={this.state.sortBy}
