@@ -2,10 +2,8 @@ import React from 'react';
 import { Logo } from '../';
 import './header.scss';
 
-export const Header = () => {
-  return (
+export const Header = () => (
     <header className="header">
-      <Logo />
+      <h1><Logo /></h1>
     </header>
-  )
-}
+);
