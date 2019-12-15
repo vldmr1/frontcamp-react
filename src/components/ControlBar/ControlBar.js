@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { ToggleSwitch } from '../UI';
 import './ControlBar.scss';
 
@@ -8,12 +9,14 @@ const ControlBar = ({ toggleSorting, filmsCount }) => {
       <p className="filmsCount">
         {`${filmsCount} movie${filmsCount === 1 ? '' : 's'} found`}
       </p>
-      <ToggleSwitch
-        toggleHandler={toggleSorting}
-        title="SORT BY"
-        leftLabel="YEAR"
-        rightLabel="TITLE"
-       />
+      <Route exact path="/">
+        <ToggleSwitch
+          toggleHandler={toggleSorting}
+          title="SORT BY"
+          leftLabel="YEAR"
+          rightLabel="TITLE"
+        />
+      </Route>
     </div>
   )
 }
