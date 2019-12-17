@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './MovieDetails.scss';
 
-const MovieDetails = ({ title, score = 'N/A', genres, year, runtime, plot, posterUrl }) => {
+const mapStateToProps = state => ({
+  currentMovie: state.currentMovie,
+})
+
+const MovieDetails = ({ currentMovie: { title, score = 'N/A', genres, year, runtime, plot, posterUrl }}) => {
   return (
     <div className="details-wrapper">
       <img
@@ -32,4 +37,4 @@ const MovieDetails = ({ title, score = 'N/A', genres, year, runtime, plot, poste
   )
 };
 
-export default MovieDetails;
+export default connect(mapStateToProps)(MovieDetails);
