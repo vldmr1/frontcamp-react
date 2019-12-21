@@ -40,7 +40,6 @@ const ControlBar = ({ changeSortType, filmsCount, sortBy, currentMovie, movies, 
       <Route exact path="/(|search)/">
         <ToggleSwitch
           toggleHandler={(event) => {
-            console.log(sortBy);
             changeSortType(event.target.value.toLowerCase());
             if (searchQuery) fetchMovies(searchQuery);
           }}
